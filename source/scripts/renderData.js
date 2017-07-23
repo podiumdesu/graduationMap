@@ -151,11 +151,10 @@ function renderTeacher(finalData) {
         var stringToInsert = document.createElement("p");
         stringToInsert.className += ' no-margin ';
         if (element.name.length === 2) {
-            var textToInsert = document.createTextNode(element.name+'  '+element.school);
+            stringToInsert.innerHTML = element.name+'&nbsp;&nbsp;&nbsp;&nbsp;'+element.school;
         } else {
-            var textToInsert = document.createTextNode(element.name+'   '+element.school);
+            stringToInsert.innerHTML = element.name+'&nbsp;&nbsp;'+element.school;
         }
-        stringToInsert.appendChild(textToInsert);
         teacherDiv.appendChild(stringToInsert);
     });
     return teacherDiv;
