@@ -57,7 +57,7 @@
 }
 
 .student-data-style {
-    width: 150px;
+    width: 130px;
     position: absolute;
     z-index: 2;
     cursor: move;

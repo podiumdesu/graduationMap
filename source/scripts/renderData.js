@@ -102,8 +102,11 @@ function renderProvinceData(studentData,divToInsert) {   //将渲染出来的数
     studentData.forEach(function(element) {
         var stringToInsert = document.createElement("p");
         stringToInsert.className += ' no-margin ';
-        var textToInsert = document.createTextNode(element.name +' ' +element.school);
-        stringToInsert.appendChild(textToInsert);
+        if (element.name.length === 2) {
+            stringToInsert.innerHTML = element.name+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+element.school;
+        } else {
+            stringToInsert.innerHTML = element.name+'&nbsp;&nbsp;'+element.school;
+        }
         divToInsert.appendChild(stringToInsert);
     });
     return divToInsert;
@@ -151,7 +154,7 @@ function renderTeacher(finalData) {
         var stringToInsert = document.createElement("p");
         stringToInsert.className += ' no-margin ';
         if (element.name.length === 2) {
-            stringToInsert.innerHTML = element.name+'&nbsp;&nbsp;&nbsp;&nbsp;'+element.school;
+            stringToInsert.innerHTML = element.name+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+element.school;
         } else {
             stringToInsert.innerHTML = element.name+'&nbsp;&nbsp;'+element.school;
         }
@@ -170,8 +173,11 @@ function renderOther(finalData) {
     otherData.forEach(function(element) {
         var stringToInsert = document.createElement('p');
         stringToInsert.className += ' no-margin ';
-        var textToInsert = document.createTextNode(element.name + ' '+element.school);
-        stringToInsert.appendChild(textToInsert);
+        if (element.name.length === 2) {
+            stringToInsert.innerHTML = element.name+'&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;'+element.school;
+        } else {
+            stringToInsert.innerHTML = element.name+'&nbsp;&nbsp;'+element.school;
+        }
         otherDiv.appendChild(stringToInsert);
     });
     return otherDiv;
