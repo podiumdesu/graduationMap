@@ -22,16 +22,46 @@ $("#showStandard").click(function() {
 
 $(function() {
     $("#downloadPic").click(function() {
+
+        var svgObj = $("#svg-data");
+
+        var canvas2 = document.createElement("canvas");
+        canvas2.height = $(svgObj).height();
+        canvas2.width = $(svgObj).width();
+
+        var ctx = canvas2.getContext("2d");
+
+        var img = new Image();
+
+
+        img.onload = function() {
+            ctx.drawImage(img, 0, 0);
+
         html2canvas($("#map-part"), {
             onrendered: function(canvas) {
+
                 document.body.appendChild(canvas);
+                //$(svgObj).show();
+                //$(canvas2).remove();
 
                 // Convert and download as image
-                Canvas2Image.saveAsPNG(canvas);
-                $("#img-out").append(canvas);
+                // Canvas2Image.saveAsPNG(canvas);
+                // $("#img-out").append(canvas);
                 // Clean up
                 //document.body.removeChild(canvas);
-            }
+            },
+            //height:canvas2.height,
+            //width:canvas2.width,
         });
+
+        }
+        
+
+        img.src = document.getElementById("svg-data").data;
+
+        $(canvas2).insertAfter(svgObj);
+        console.log(svgObj);
+        $(svgObj).hide();
+        //document.body.appendChild(canvas2);
     });
 });
