@@ -1,0 +1,54 @@
+#xlsxstandard-img {
+    width: 90%;
+}
+
+#xlsx-standard {
+    text-align: center;
+    width:100%;
+    margin: 0 auto;
+
+}
+
+#xlsx-standard {
+    position: absolute;
+    top:0;
+    margin: 0 auto;
+}
+
+#standard-border {
+    width: 50%;
+    background-color: darkcyan;
+    margin: 0 auto;
+    margin-top: 10%;
+}
+
+#standard-border > div {
+    border: 15px solid darkcyan;
+    background-color: white;
+    border-bottom-right-radius: 30px;
+    border-top-left-radius: 30px;
+    position: relative;
+
+}
+#standard-discription {
+    margin-top: 10px;
+    margin-left: 5%;
+    margin-right: 5%;
+    text-align: left;
+}
+#xlsx-standard {
+    z-index: 200;
+}
+
+#closeStandard {
+    position: absolute;
+    top: 5%;
+    background-color: darkcyan;
+    right: 3%;
+    color: white;
+    font-size: 20px;
+    padding: 0px 10px;
+    border-radius: 21px;
+    text-align: center;
+    cursor: pointer;
+}

@@ -6,10 +6,10 @@
  4.readAsText(file, [encoding])：将文件读取为文本，encoding缺省值为'UTF-8'
  */
 
-import processData from './processData.js';
+import {processData} from './processData.js';
 
 var upload=document.getElementById('uploadXLSX');
-var finalName;
+export var finalName;
 var finalWorkBook;
 var finalWorkSheet;
 

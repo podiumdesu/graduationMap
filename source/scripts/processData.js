@@ -18,8 +18,8 @@
 ]*/
 
 import {finalData} from './importXLSX.js';
-import render from './test.js';
-export default function() {
+import render from './renderData.js';
+export function processData() {
     var allData = finalData.concat();
     allData.forEach(pushJobStatistic);
     //只获取毕业生（非出国）的省份
@@ -64,8 +64,23 @@ function getAllGraduatorProvince(element,index) {
         isSameProvince.push(newProvinceData);
     }
 }
-function getAllGraduatorData(element,index) {
+/*
+module.exports = {
+    getAllGraduatorData: getAllGraduatorData,
+    getAllTeacherData: getAllTeacherData,
+    getAllOtherData: getAllOtherData,
+
+}
+*/
+
+export function getAllGraduatorData(element,index) {
     return (jobStatistic.graduator.indexOf(index) >= 0);
+}
+export function getAllTeacherData(element, index) {
+    return (jobStatistic.teacher.indexOf(index) >= 0);
+}
+export function getAllOtherData(element, index) {
+    return (jobStatistic.other.indexOf(index) >= 0);
 }
 
 function pushSameProvince(element, index) {  //获得的是所有人的数据
@@ -78,6 +93,8 @@ function pushSameProvince(element, index) {  //获得的是所有人的数据
         }
     }
 }
+
+
 
 
 

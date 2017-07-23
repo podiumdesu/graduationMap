@@ -7,12 +7,51 @@
   <link rel="icon" href="./favicon.ico">
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.0/jquery.min.js"></script>
   <script src="http://oss.sheetjs.com/js-xlsx/xlsx.full.min.js"></script>
+  <script type="text/javascript" src="http://html2canvas.hertzen.com/build/html2canvas.js"></script>
 </head>
 <body>
 
-<input type="file" id="uploadXLSX" />
+<div id="map-part">
+  <div id="map-title-container">
+    <h2 id="map-title"></h2>
+  </div>
+  <object data="./source/images/map.svg" type="image/svg+xml" id="svg-data"></object>
+</div>
+
+<div id="btn-container">
+  <div id="svg-container">
+    <input type="file" id="uploadXLSX" >
+  </div>
+  <button id="downloadPic" >下载图片</button>
+  <button id="addString" >生成连线</button>
+  <p id="showStandard">点击查看xlsx上传文件标准格式</p>
+</div>
 
 
+<div id="img-out"></div>
+<div id="xlsx-standard" class="toHide">
+  <div id="standard-border">
+    <div>
+      <h3>xlsx文件上传标准</h3>
+      <span id="closeStandard">x</span>
+      <img src="./source/images/xlsxstandard.png" alt="xlsx标准" id="xlsxstandard-img">
+      <div id="standard-discription">
+        <p>A列1行填写本地图的title</p>
+        <p>第 2 行按照给定的选项进行填写（注：顺序不可填错）</p>
+        <p>身份栏中有"毕业"（代表应届毕业生）、"教师"、"复读"以及"出国"四个可选项</p>
+        <p>学校填写录取高校的名称</p>
+        <p>省份栏填写录取高校所在省份即可，不需要添加"省"或"市"字样</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<!--
+
+
+-->
 
 <script src="./source/scripts/bundle.js"></script>
 </body>

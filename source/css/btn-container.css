@@ -1,0 +1,58 @@
+#btn-container {
+    width: 1100px;
+    margin: 0 auto;
+    min-width: 400px;
+}
+
+#svg-container {
+    display: inline-block;
+}
+
+
+#showStandard {
+    font-size: 12px;
+    cursor: pointer;
+    color: rgba(0,0,0,0.5);
+    transition: all ease 1s;
+}
+
+#showStandard:hover {
+    color:  rgba(0,0,0,1);
+}
+
+#uploadXLSX {
+    padding: 10px 0 5px 0;
+    font-size: 15px;
+    margin: 0px;
+}
+
+#downloadPic {
+    border-radius: 20px;
+    padding: 5px 20px;
+    margin: 10px 0;
+    float: right;
+    transition: all ease .5s;
+    background-color: white;
+    border: 1px solid darkcyan;
+    color: darkcyan;
+}
+#downloadPic:hover {
+    background: darkcyan;
+    border: 1px solid darkcyan;
+    color: white;
+}
+#addString {
+    background: white;
+    color: darkcyan;
+    border: 1px solid darkcyan;
+    border-radius: 20px;
+    padding: 5px 20px;
+    float: right;
+    margin: 10px 10px;
+    transition: all ease .5s;
+}
+
+#addString:hover {
+    background-color: darkcyan;
+    color: white;
+}
