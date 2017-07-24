@@ -20,6 +20,45 @@ $("#showStandard").click(function() {
 
 });
 
+$("#addString").click(function () {
+    var locationFrom = {"上海":[975,528],"武汉":[824,535],"北京":[882,351]};
+    //var nowNode = $("#")
+    var icons=$(".student-data-style");
+    var svgNode = $("#svg-data");
+
+    var svgDocument = svgNode[0].contentDocument;
+    var paths=svgDocument.getElementById('path');
+    console.log(paths);
+    while(paths) {
+        var parent = paths.parentNode;
+        parent.removeChild(paths);
+        paths = svgDocument.getElementById('path');
+    }
+    for(var i=0;i<icons.length;++i) {
+        var location = $(icons[i]).attr('location');
+        var width = locationFrom[location][0];
+        var height = locationFrom[location][1];
+        var pl = $(document.createElementNS('http://www.w3.org/2000/svg', 'path'));
+        var X = icons[i].offsetLeft - 40, Y = icons[i].offsetTop;
+        console.log(X, Y);
+        pl.attr('stroke', 'red');
+        pl.attr('d', 'M' + width + ' ' + height + ',' + X + ' ' + Y + ' Z');
+        pl.attr('fill', 'none');
+        pl.attr('id','path');
+        pl.attr('stroke-width', '3');
+        var pl2 = $(document.createElementNS('http://www.w3.org/2000/svg', 'path'));
+        pl2.attr('stroke', 'red');
+        pl2.attr('d', 'M' + X + ' ' + Y + ',' + (X + 40) + ' ' + Y + ' Z');
+        pl2.attr('fill', 'none');
+        pl2.attr('id','path');
+        pl2.attr('stroke-width', '3');
+
+        svgDocument.rootElement.appendChild(pl.get(0));
+        svgDocument.rootElement.appendChild(pl2.get(0));
+    }
+
+});
+
 $(function() {
     $("#downloadPic").click(function() {
 
