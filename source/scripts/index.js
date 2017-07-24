@@ -26,6 +26,7 @@ $(function() {
         var svgObj = $("#svg-data");
 
         var canvas2 = document.createElement("canvas");
+        canvas2.setAttribute("class","previewPic");
         canvas2.height = $(svgObj).height();
         canvas2.width = $(svgObj).width();
 
@@ -41,8 +42,8 @@ $(function() {
             onrendered: function(canvas) {
 
                 document.body.appendChild(canvas);
-                //$(svgObj).show();
-                //$(canvas2).remove();
+                $(svgObj).show();
+                $(canvas2).remove();
 
                 // Convert and download as image
                 // Canvas2Image.saveAsPNG(canvas);

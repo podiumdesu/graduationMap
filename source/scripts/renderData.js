@@ -11,6 +11,12 @@ export default function() {
 
 
     var otherData = finalData.filter(getAllOtherData);
+    var titleDiv = document.createElement("div");
+    var titleH2 = document.createElement("h2");
+    titleDiv.appendChild(titleH2);
+    titleDiv.setAttribute("id","map-title-container");
+    titleH2.setAttribute("id","map-title");
+    targetNode.append(titleDiv);
     $("#map-title").html(finalName);
     targetNode.append(renderTeacher(finalData));
     targetNode.append(renderOther(finalData));
