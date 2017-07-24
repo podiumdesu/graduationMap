@@ -41,8 +41,8 @@ $(function() {
             onrendered: function(canvas) {
 
                 document.body.appendChild(canvas);
-                //$(svgObj).show();
-                //$(canvas2).remove();
+                $(svgObj).show();
+                $(canvas2).remove();
 
                 // Convert and download as image
                 // Canvas2Image.saveAsPNG(canvas);
