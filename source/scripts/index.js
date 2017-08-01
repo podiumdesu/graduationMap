@@ -68,6 +68,8 @@ $("#addString").click(function () {
     //console.log(icons[0]);
     for (var i = 0; i < icons.length; ++i) {
         var location = $(icons[i]).attr('location');
+        if (!(location in locationFrom))
+            continue;
         var width = locationFrom[location][0];
         var height = locationFrom[location][1];
         var pl = $(document.createElementNS('http://www.w3.org/2000/svg', 'path'));
@@ -78,28 +80,28 @@ $("#addString").click(function () {
         //console.log($(icons[i]).css("left"));
         //console.log(X, Y);
         if (X > width) {
-            pl.attr('stroke', 'red');
+            pl.attr('stroke', 'black');
             pl.attr('d', 'M' + width + ' ' + height + ',' + (X - 40) + ' ' + Y + ' Z');
             pl.attr('fill', 'none');
             pl.attr('id', 'path');
-            pl.attr('stroke-width', '3');
-            pl2.attr('stroke', 'red');
+            pl.attr('stroke-width', '1');
+            pl2.attr('stroke', 'black');
             pl2.attr('d', 'M' + (X - 40) + ' ' + Y + ',' + X + ' ' + Y + ' Z');
             pl2.attr('fill', 'none');
             pl2.attr('id', 'path');
-            pl2.attr('stroke-width', '3');
+            pl2.attr('stroke-width', '1');
         }
         else {
-            pl.attr('stroke', 'red');
+            pl.attr('stroke', 'black');
             pl.attr('d', 'M' + width + ' ' + height + ',' + (X + $(icons[i]).width() / 0.7625 + 40) + ' ' + Y + ' Z');
             pl.attr('fill', 'none');
             pl.attr('id', 'path');
-            pl.attr('stroke-width', '3');
-            pl2.attr('stroke', 'red');
+            pl.attr('stroke-width', '1');
+            pl2.attr('stroke', 'black');
             pl2.attr('d', 'M' + (X + $(icons[i]).width() / 0.7625 + 40) + ' ' + Y + ',' + X + ' ' + Y + ' Z');
             pl2.attr('fill', 'none');
             pl2.attr('id', 'path');
-            pl2.attr('stroke-width', '3');
+            pl2.attr('stroke-width', '1');
         }
 
         svgDocument.rootElement.appendChild(pl.get(0));
