@@ -46,7 +46,7 @@ $("#addString").click(function () {
         "广西": [768, 683],
         "云南": [617, 661],
         "海南": [794, 783],
-	"河南": [834, 487],
+    	"河南": [834, 487],
         "台湾": [997, 676],
         "湖南": [815, 608],
         "安徽": [901, 512],
@@ -113,28 +113,6 @@ $("#addString").click(function () {
 
 $(function () {
     $("#downloadPic").click(function () {
-        /*var svgImage = $('#svg-data')[0].contentDocument.childNodes[0];
-        var str = (new XMLSerializer()).serializeToString(svgImage);
-        str = str.replace(/xmlns=\"http:\/\/www\.w3\.org\/1999\/svg\"/, '');
-        var $canvas = $('<canvas/>');
-        $canvas.width($('#svg-data').width());
-        $canvas.height($('#svg-data').height());
-        $canvas[0].getcontext("2d").fillStyle = '#fff';
-        $canvas[0].getcontext("2d").fillRect(0,0);
-        $canvas.appendTo("#map-part");
-        canvg($canvas.get(0), str); // convert SVG to canvas
-        $('#svg-data').hide();
-        $canvas.onload = function () {
-            html2canvas($("#map-part"), {
-                onrendered: function (canvas) {
-                    var a = document.createElement('a');
-                    a.href = canvas.toDataURL();
-                    a.download = 'test2.png';
-                    a.click();
-                    $canvas.remove();
-                }
-            })
-        };*/
         var svgObj = $("#svg-data");
         var svgString = new XMLSerializer().serializeToString(svgObj[0].contentDocument.childNodes[0]);
         var DOMURL = self.URL || self.webkitURL || self;
@@ -176,7 +154,7 @@ $(function () {
         img.src = url;
 
         $(canvas2).insertAfter(svgObj);
-        console.log(svgObj);
+        //console.log(svgObj);
         $(svgObj).hide();
         //document.body.appendChild(canvas2);*/
     });

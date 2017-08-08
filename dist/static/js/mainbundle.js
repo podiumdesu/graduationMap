@@ -60,7 +60,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "bde4ce1b8d2af90fdb2f"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "db96d5f4a11c620b6a90"; // eslint-disable-line no-unused-vars
 /******/ 	var hotRequestTimeout = 10000;
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentChildModule; // eslint-disable-line no-unused-vars
@@ -747,17 +747,17 @@ function process_data(wb) {
     var firstSheetName = wb.SheetNames[0];
     finalWorkSheet = wb.Sheets[firstSheetName];
     exports.finalName = finalName = finalWorkSheet['A1'].v;
-    console.log("The name of the sheet is " + finalName);
-    console.log("The data of the sheet is:");
+    // console.log("The name of the sheet is "+finalName);
+    // console.log("The data of the sheet is:");
     exports.finalData = finalData = XLSX.utils.sheet_to_json(finalWorkSheet, { header: ["name", "job", "school", "location"], range: 2 });
-    console.log(finalData);
+    // console.log(finalData);
     (0, _processData.processData)();
 }
 function handleFile(e) {
     var f = e.target.files[0];
     var reader = new FileReader(); //读取文件
     var name = f.name;
-    console.log(name + ' is being read!');
+    // console.log(name+' is being read!');
     reader.onload = function (e) {
         //alert("onload ok!");
         var data = e.target.result;
@@ -822,16 +822,16 @@ function processData() {
     allData.forEach(pushJobStatistic);
     //只获取毕业生（非出国）的省份
     var graduatorData = allData.filter(getAllGraduatorData);
-    console.log("下面是毕业生的信息");
-    console.log(graduatorData);
+    //console.log("下面是毕业生的信息");
+    //console.log(graduatorData);
     graduatorData.forEach(getAllGraduatorProvince);
-    console.log("所有的省份为：" + allProvince);
+    //console.log("所有的省份为："+allProvince);
     allData.forEach(pushSameProvince);
-    console.log("同一个省份的学生的编号");
-    console.log(isSameProvince);
-    console.log("老师的编号" + jobStatistic.teacher);
-    console.log("毕业生的编号" + jobStatistic.graduator);
-    console.log("其他学生的编号" + jobStatistic.other);
+    //console.log("同一个省份的学生的编号");
+    //console.log(isSameProvince);
+    //console.log("老师的编号"+jobStatistic.teacher);
+    //console.log("毕业生的编号"+jobStatistic.graduator);
+    //console.log("其他学生的编号"+jobStatistic.other);
     (0, _renderData2.default)();
 };
 var jobStatistic = exports.jobStatistic = {
@@ -904,7 +904,7 @@ exports = module.exports = __webpack_require__(3)(undefined);
 
 
 // module
-exports.push([module.i, "h4 {\n    text-align: center;\n}\n#map-title-container  {\n    text-align: center;\n    position: absolute;\n    top: 0;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n}\n\n#map-title-container > h2 {\n    padding: 20px 0px;\n    margin-top: 0px;\n    font-size: 2rem;\n}\n#map-title {\n    margin: 0px;\n}\n\n#map-part {\n\n    width: 1100px;\n    position: relative;\n    margin: 0 auto;\n    border: 1px dashed darkcyan;\n    transition: all ease 0.5s;\n    margin-top:5px;\n}\n\n.toHide {\n    display: none;\n\n}\n\n.display-style {\n    width: 130px;\n    border: 1px solid black;\n    padding: 10px 5px;\n    font-size: 11px;\n    user-select: none;\n}\n\n.teacher-data-style {\n    position: absolute;\n    top: 10px;\n    left:10px;\n}\n.no-margin {\n    margin: 0px 0px 0px 0px;\n    padding-top: 3px;\n}\n\n.other-data-style {\n    position: absolute;\n    bottom: 10px;\n    left: 10px;\n\n}\n\n.student-data-style {\n    width: 130px;\n    position: absolute;\n    z-index: 2;\n    cursor: move;\n    top: 0px;\n    right: 0px;\n    border: 0px;\n    background-color: rgba(254,247,237,1);\n    border-top: 1px solid black;\n\n}\np.location-title {\n    z-index: 100;\n    left: 0px;\n    top: 5px;\n    padding-bottom: 5px;\n    font-weight: 600;\n    margin: 0px;\n}\n#display-visitors {\n    position: fixed;\n    width: 100%;\n    margin-top: 5px;\n}\n#display-visitors p{\n    margin: 0;\n    display: inline-block;\n}\n#display-visitors p  a{\n    text-decoration: none;\n    color: 0;\n}\n#display-visitors div {\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n    text-align: center;\n}\n\n#busuanzi_value_site_uv {\n    -webkit-animation: ddd 1.33s ease-in-out infinite;\n    animation: ddd 1.33s ease-in-out infinite;\n    color: lightpink;\n}\n.my-face {\n    -webkit-animation: move 5s infinite ease-in-out;\n    animation: move 5s infinite ease-in-out;\n    display: inline-block;\n    margin: 0 5px;\n    color: hotpink;\n}\n@keyframes ddd {\n    0% {\n        -webkit-transform: scale(1);\n        transform: scale(1);\n    }\n    50% {\n        -webkit-transform: scale(.8);\n        transform: scale(.8);\n    }\n    100% {\n        -webkit-transform: scale(1);\n        transform: scale(1);\n    }\n}\n@keyframes move {\n    2% {\n        -webkit-transform: translateY(1.5px) rotate(1.5deg);\n        transform: translateY(1.5px) rotate(1.5deg);\n    }\n\n    4% {\n        -webkit-transform: translateY(-1.5px) rotate(-.5deg);\n        transform: translateY(-1.5px) rotate(-.5deg);\n    }\n    6% {\n        -webkit-transform: translateY(1.5px) rotate(-1.5deg);\n        transform: translateY(1.5px) rotate(-1.5deg);\n    }\n    8% {\n        -webkit-transform: translateY(-1.5px) rotate(-1.5deg);\n        transform: translateY(-1.5px) rotate(-1.5deg);\n    }\n    10% {\n        -webkit-transform: translateY(2.5px) rotate(1.5deg);\n        transform: translateY(2.5px) rotate(1.5deg);\n    }\n    12% {\n        -webkit-transform: translateY(-.5px) rotate(1.5deg);\n        transform: translateY(-.5px) rotate(1.5deg);\n    }\n    14% {\n        -webkit-transform: translateY(-1.5px) rotate(1.5deg);\n        transform: translateY(-1.5px) rotate(1.5deg);\n    }\n    16% {\n        -webkit-transform: translateY(-.5px) rotate(-1.5deg);\n        transform: translateY(-.5px) rotate(-1.5deg);\n    }\n    18% {\n        -webkit-transform: translateY(.5px) rotate(-1.5deg);\n        transform: translateY(.5px) rotate(-1.5deg);\n    }\n    20% {\n        -webkit-transform: translateY(-1.5px) rotate(2.5deg);\n        transform: translateY(-1.5px) rotate(2.5deg);\n    }\n    22% {\n        -webkit-transform: translateY(.5px) rotate(-1.5deg);\n        transform: translateY(.5px) rotate(-1.5deg);\n    }\n    24% {\n        -webkit-transform: translateY(1.5px) rotate(1.5deg);\n        transform: translateY(1.5px) rotate(1.5deg);\n    }\n    26% {\n        -webkit-transform: translateY(.5px) rotate(.5deg);\n        transform: translateY(.5px) rotate(.5deg);\n    }\n    28% {\n        -webkit-transform: translateY(.5px) rotate(1.5deg);\n        transform: translateY(.5px) rotate(1.5deg);\n    }\n    30% {\n        -webkit-transform: translateY(-.5px) rotate(2.5deg);\n        transform: translateY(-.5px) rotate(2.5deg);\n    }\n    32% {\n        -webkit-transform: translateY(1.5px) rotate(-.5deg);\n        transform: translateY(1.5px) rotate(-.5deg);\n    }\n    34% {\n        -webkit-transform: translateY(1.5px) rotate(-.5deg);\n        transform: translateY(1.5px) rotate(-.5deg);\n    }\n    36% {\n        -webkit-transform: translateY(-1.5px) rotate(2.5deg);\n        transform: translateY(-1.5px) rotate(2.5deg);\n    }\n    38% {\n        -webkit-transform: translateY(1.5px) rotate(-1.5deg);\n        transform: translateY(1.5px) rotate(-1.5deg);\n    }\n    40% {\n        -webkit-transform: translateY(-.5px) rotate(2.5deg);\n        transform: translateY(-.5px) rotate(2.5deg);\n    }\n    42% {\n        -webkit-transform: translateY(2.5px) rotate(-1.5deg);\n        transform: translateY(2.5px) rotate(-1.5deg);\n    }\n    44% {\n        -webkit-transform: translateY(1.5px) rotate(.5deg);\n        transform: translateY(1.5px) rotate(.5deg);\n    }\n    46% {\n        -webkit-transform: translateY(-1.5px) rotate(2.5deg);\n        transform: translateY(-1.5px) rotate(2.5deg);\n    }\n    48% {\n        -webkit-transform: translateY(-.5px) rotate(.5deg);\n        transform: translateY(-.5px) rotate(.5deg);\n    }\n    50% {\n        -webkit-transform: translateY(.5px) rotate(.5deg);\n        transform: translateY(.5px) rotate(.5deg);\n    }\n    52% {\n        -webkit-transform: translateY(2.5px) rotate(2.5deg);\n        transform: translateY(2.5px) rotate(2.5deg);\n    }\n    54% {\n        -webkit-transform: translateY(-1.5px) rotate(1.5deg);\n        transform: translateY(-1.5px) rotate(1.5deg);\n    }\n    56% {\n        -webkit-transform: translateY(2.5px) rotate(2.5deg);\n        transform: translateY(2.5px) rotate(2.5deg);\n    }\n    58% {\n        -webkit-transform: translateY(.5px) rotate(2.5deg);\n        transform: translateY(.5px) rotate(2.5deg);\n    }\n    60% {\n        -webkit-transform: translateY(2.5px) rotate(2.5deg);\n        transform: translateY(2.5px) rotate(2.5deg);\n    }\n    62% {\n        -webkit-transform: translateY(-.5px) rotate(2.5deg);\n        transform: translateY(-.5px) rotate(2.5deg);\n    }\n    64% {\n        -webkit-transform: translateY(-.5px) rotate(1.5deg);\n        transform: translateY(-.5px) rotate(1.5deg);\n    }\n    66% {\n        -webkit-transform: translateY(1.5px) rotate(-.5deg);\n        transform: translateY(1.5px) rotate(-.5deg);\n    }\n    68% {\n        -webkit-transform: translateY(-1.5px) rotate(-.5deg);\n        transform: translateY(-1.5px) rotate(-.5deg);\n    }\n    70% {\n        -webkit-transform: translateY(1.5px) rotate(.5deg);\n        transform: translateY(1.5px) rotate(.5deg);\n    }\n    72% {\n        -webkit-transform: translateY(2.5px) rotate(1.5deg);\n        transform: translateY(2.5px) rotate(1.5deg);\n    }\n    74% {\n        -webkit-transform: translateY(-.5px) rotate(.5deg);\n        transform: translateY(-.5px) rotate(.5deg);\n    }\n    76% {\n        -webkit-transform: translateY(-.5px) rotate(2.5deg);\n        transform: translateY(-.5px) rotate(2.5deg);\n    }\n    78% {\n        -webkit-transform: translateY(-.5px) rotate(1.5deg);\n        transform: translateY(-.5px) rotate(1.5deg);\n    }\n    80% {\n        -webkit-transform: translateY(1.5px) rotate(1.5deg);\n        transform: translateY(1.5px) rotate(1.5deg);\n    }\n    82% {\n        -webkit-transform: translateY(-.5px) rotate(.5deg);\n        transform: translateY(-.5px) rotate(.5deg);\n    }\n    84% {\n        -webkit-transform: translateY(1.5px) rotate(2.5deg);\n        transform: translateY(1.5px) rotate(2.5deg);\n    }\n    86% {\n        -webkit-transform: translateY(-1.5px) rotate(-1.5deg);\n        transform: translateY(-1.5px) rotate(-1.5deg);\n    }\n    88% {\n        -webkit-transform: translateY(-.5px) rotate(2.5deg);\n        transform: translateY(-.5px) rotate(2.5deg);\n    }\n    90% {\n        -webkit-transform: translateY(2.5px) rotate(-.5deg);\n        transform: translateY(2.5px) rotate(-.5deg);\n    }\n    92% {\n        -webkit-transform: translateY(.5px) rotate(-.5deg);\n        transform: translateY(.5px) rotate(-.5deg);\n    }\n    94% {\n        -webkit-transform: translateY(2.5px) rotate(.5deg);\n        transform: translateY(2.5px) rotate(.5deg);\n    }\n    96% {\n        -webkit-transform: translateY(-.5px) rotate(1.5deg);\n        transform: translateY(-.5px) rotate(1.5deg);\n    }\n    98% {\n        -webkit-transform: translateY(-1.5px) rotate(-.5deg);\n        transform: translateY(-1.5px) rotate(-.5deg);\n    }\n\n    0%, 100% {\n        -webkit-transform: translate(0) rotate(0deg);\n        transform: translate(0) rotate(0deg);\n    }\n}", ""]);
+exports.push([module.i, "h4 {\n    text-align: center;\n}\n#map-title-container  {\n    text-align: center;\n    position: absolute;\n    top: 0;\n    margin: 0;\n    padding: 0;\n    width: 100%;\n}\n\n#map-title-container > h2 {\n    padding: 20px 0px;\n    margin-top: 0px;\n    font-size: 2rem;\n}\n#map-title {\n    margin: 0px;\n    user-select: none;\n}\n\n#map-part {\n\n    width: 1100px;\n    position: relative;\n    margin: 0 auto;\n    border: 1px dashed darkcyan;\n    transition: all ease 0.5s;\n    margin-top:5px;\n}\n\n.toHide {\n    display: none;\n\n}\n\n.display-style {\n    width: 130px;\n    border: 1px solid black;\n    padding: 10px 5px;\n    font-size: 11px;\n    user-select: none;\n}\n\n.teacher-data-style {\n    position: absolute;\n    top: 10px;\n    left:10px;\n}\n.no-margin {\n    margin: 0px 0px 0px 0px;\n    padding-top: 3px;\n}\n\n.other-data-style {\n    position: absolute;\n    bottom: 10px;\n    left: 10px;\n\n}\n\n.student-data-style {\n    width: 130px;\n    position: absolute;\n    z-index: 2;\n    cursor: move;\n    top: 0px;\n    right: 0px;\n    border: 0px;\n    background-color: rgba(254,247,237,1);\n    border-top: 1px solid black;\n\n}\np.location-title {\n    z-index: 100;\n    left: 0px;\n    top: 5px;\n    padding-bottom: 5px;\n    font-weight: 600;\n    margin: 0px;\n}\n#display-visitors {\n    position: fixed;\n    width: 100%;\n    margin-top: 5px;\n}\n#display-visitors p{\n    margin: 0;\n    display: inline-block;\n}\n#display-visitors p  a{\n    text-decoration: none;\n    color: 0;\n}\n#display-visitors div {\n    margin-left: auto;\n    margin-right: auto;\n    width: 40%;\n    text-align: center;\n}\n\n#busuanzi_value_site_uv {\n    -webkit-animation: ddd 1.33s ease-in-out infinite;\n    animation: ddd 1.33s ease-in-out infinite;\n    color: lightpink;\n}\n.my-face {\n    -webkit-animation: move 5s infinite ease-in-out;\n    animation: move 5s infinite ease-in-out;\n    display: inline-block;\n    margin: 0 5px;\n    color: hotpink;\n}\n@keyframes ddd {\n    0% {\n        -webkit-transform: scale(1);\n        transform: scale(1);\n    }\n    50% {\n        -webkit-transform: scale(.8);\n        transform: scale(.8);\n    }\n    100% {\n        -webkit-transform: scale(1);\n        transform: scale(1);\n    }\n}\n@keyframes move {\n    2% {\n        -webkit-transform: translateY(1.5px) rotate(1.5deg);\n        transform: translateY(1.5px) rotate(1.5deg);\n    }\n\n    4% {\n        -webkit-transform: translateY(-1.5px) rotate(-.5deg);\n        transform: translateY(-1.5px) rotate(-.5deg);\n    }\n    6% {\n        -webkit-transform: translateY(1.5px) rotate(-1.5deg);\n        transform: translateY(1.5px) rotate(-1.5deg);\n    }\n    8% {\n        -webkit-transform: translateY(-1.5px) rotate(-1.5deg);\n        transform: translateY(-1.5px) rotate(-1.5deg);\n    }\n    10% {\n        -webkit-transform: translateY(2.5px) rotate(1.5deg);\n        transform: translateY(2.5px) rotate(1.5deg);\n    }\n    12% {\n        -webkit-transform: translateY(-.5px) rotate(1.5deg);\n        transform: translateY(-.5px) rotate(1.5deg);\n    }\n    14% {\n        -webkit-transform: translateY(-1.5px) rotate(1.5deg);\n        transform: translateY(-1.5px) rotate(1.5deg);\n    }\n    16% {\n        -webkit-transform: translateY(-.5px) rotate(-1.5deg);\n        transform: translateY(-.5px) rotate(-1.5deg);\n    }\n    18% {\n        -webkit-transform: translateY(.5px) rotate(-1.5deg);\n        transform: translateY(.5px) rotate(-1.5deg);\n    }\n    20% {\n        -webkit-transform: translateY(-1.5px) rotate(2.5deg);\n        transform: translateY(-1.5px) rotate(2.5deg);\n    }\n    22% {\n        -webkit-transform: translateY(.5px) rotate(-1.5deg);\n        transform: translateY(.5px) rotate(-1.5deg);\n    }\n    24% {\n        -webkit-transform: translateY(1.5px) rotate(1.5deg);\n        transform: translateY(1.5px) rotate(1.5deg);\n    }\n    26% {\n        -webkit-transform: translateY(.5px) rotate(.5deg);\n        transform: translateY(.5px) rotate(.5deg);\n    }\n    28% {\n        -webkit-transform: translateY(.5px) rotate(1.5deg);\n        transform: translateY(.5px) rotate(1.5deg);\n    }\n    30% {\n        -webkit-transform: translateY(-.5px) rotate(2.5deg);\n        transform: translateY(-.5px) rotate(2.5deg);\n    }\n    32% {\n        -webkit-transform: translateY(1.5px) rotate(-.5deg);\n        transform: translateY(1.5px) rotate(-.5deg);\n    }\n    34% {\n        -webkit-transform: translateY(1.5px) rotate(-.5deg);\n        transform: translateY(1.5px) rotate(-.5deg);\n    }\n    36% {\n        -webkit-transform: translateY(-1.5px) rotate(2.5deg);\n        transform: translateY(-1.5px) rotate(2.5deg);\n    }\n    38% {\n        -webkit-transform: translateY(1.5px) rotate(-1.5deg);\n        transform: translateY(1.5px) rotate(-1.5deg);\n    }\n    40% {\n        -webkit-transform: translateY(-.5px) rotate(2.5deg);\n        transform: translateY(-.5px) rotate(2.5deg);\n    }\n    42% {\n        -webkit-transform: translateY(2.5px) rotate(-1.5deg);\n        transform: translateY(2.5px) rotate(-1.5deg);\n    }\n    44% {\n        -webkit-transform: translateY(1.5px) rotate(.5deg);\n        transform: translateY(1.5px) rotate(.5deg);\n    }\n    46% {\n        -webkit-transform: translateY(-1.5px) rotate(2.5deg);\n        transform: translateY(-1.5px) rotate(2.5deg);\n    }\n    48% {\n        -webkit-transform: translateY(-.5px) rotate(.5deg);\n        transform: translateY(-.5px) rotate(.5deg);\n    }\n    50% {\n        -webkit-transform: translateY(.5px) rotate(.5deg);\n        transform: translateY(.5px) rotate(.5deg);\n    }\n    52% {\n        -webkit-transform: translateY(2.5px) rotate(2.5deg);\n        transform: translateY(2.5px) rotate(2.5deg);\n    }\n    54% {\n        -webkit-transform: translateY(-1.5px) rotate(1.5deg);\n        transform: translateY(-1.5px) rotate(1.5deg);\n    }\n    56% {\n        -webkit-transform: translateY(2.5px) rotate(2.5deg);\n        transform: translateY(2.5px) rotate(2.5deg);\n    }\n    58% {\n        -webkit-transform: translateY(.5px) rotate(2.5deg);\n        transform: translateY(.5px) rotate(2.5deg);\n    }\n    60% {\n        -webkit-transform: translateY(2.5px) rotate(2.5deg);\n        transform: translateY(2.5px) rotate(2.5deg);\n    }\n    62% {\n        -webkit-transform: translateY(-.5px) rotate(2.5deg);\n        transform: translateY(-.5px) rotate(2.5deg);\n    }\n    64% {\n        -webkit-transform: translateY(-.5px) rotate(1.5deg);\n        transform: translateY(-.5px) rotate(1.5deg);\n    }\n    66% {\n        -webkit-transform: translateY(1.5px) rotate(-.5deg);\n        transform: translateY(1.5px) rotate(-.5deg);\n    }\n    68% {\n        -webkit-transform: translateY(-1.5px) rotate(-.5deg);\n        transform: translateY(-1.5px) rotate(-.5deg);\n    }\n    70% {\n        -webkit-transform: translateY(1.5px) rotate(.5deg);\n        transform: translateY(1.5px) rotate(.5deg);\n    }\n    72% {\n        -webkit-transform: translateY(2.5px) rotate(1.5deg);\n        transform: translateY(2.5px) rotate(1.5deg);\n    }\n    74% {\n        -webkit-transform: translateY(-.5px) rotate(.5deg);\n        transform: translateY(-.5px) rotate(.5deg);\n    }\n    76% {\n        -webkit-transform: translateY(-.5px) rotate(2.5deg);\n        transform: translateY(-.5px) rotate(2.5deg);\n    }\n    78% {\n        -webkit-transform: translateY(-.5px) rotate(1.5deg);\n        transform: translateY(-.5px) rotate(1.5deg);\n    }\n    80% {\n        -webkit-transform: translateY(1.5px) rotate(1.5deg);\n        transform: translateY(1.5px) rotate(1.5deg);\n    }\n    82% {\n        -webkit-transform: translateY(-.5px) rotate(.5deg);\n        transform: translateY(-.5px) rotate(.5deg);\n    }\n    84% {\n        -webkit-transform: translateY(1.5px) rotate(2.5deg);\n        transform: translateY(1.5px) rotate(2.5deg);\n    }\n    86% {\n        -webkit-transform: translateY(-1.5px) rotate(-1.5deg);\n        transform: translateY(-1.5px) rotate(-1.5deg);\n    }\n    88% {\n        -webkit-transform: translateY(-.5px) rotate(2.5deg);\n        transform: translateY(-.5px) rotate(2.5deg);\n    }\n    90% {\n        -webkit-transform: translateY(2.5px) rotate(-.5deg);\n        transform: translateY(2.5px) rotate(-.5deg);\n    }\n    92% {\n        -webkit-transform: translateY(.5px) rotate(-.5deg);\n        transform: translateY(.5px) rotate(-.5deg);\n    }\n    94% {\n        -webkit-transform: translateY(2.5px) rotate(.5deg);\n        transform: translateY(2.5px) rotate(.5deg);\n    }\n    96% {\n        -webkit-transform: translateY(-.5px) rotate(1.5deg);\n        transform: translateY(-.5px) rotate(1.5deg);\n    }\n    98% {\n        -webkit-transform: translateY(-1.5px) rotate(-.5deg);\n        transform: translateY(-1.5px) rotate(-.5deg);\n    }\n\n    0%, 100% {\n        -webkit-transform: translate(0) rotate(0deg);\n        transform: translate(0) rotate(0deg);\n    }\n}", ""]);
 
 // exports
 
@@ -1391,9 +1391,9 @@ Object.defineProperty(exports, "__esModule", {
 
 exports.default = function () {
     var targetNode = $("#map-part");
-    console.log("This is render()");
+    //console.log("This is render()");
 
-    var otherData = _importXLSX.finalData.filter(_processData.getAllOtherData);
+
     var titleDiv = document.createElement("div");
     var titleH2 = document.createElement("h2");
     titleDiv.appendChild(titleH2);
@@ -1401,13 +1401,18 @@ exports.default = function () {
     titleH2.setAttribute("id", "map-title");
     targetNode.append(titleDiv);
     $("#map-title").html(_importXLSX.finalName);
-    targetNode.append(renderTeacher(_importXLSX.finalData));
-    targetNode.append(renderOther(_importXLSX.finalData));
-
-    _processData.isSameProvince.forEach(renderGraduator);
+    if (_processData.jobStatistic.teacher.length > 0) {
+        targetNode.append(renderTeacher(_importXLSX.finalData));
+    }
+    if (_processData.jobStatistic.other.length > 0) {
+        targetNode.append(renderOther(_importXLSX.finalData));
+    }
+    if (_processData.jobStatistic.graduator.length > 0) {
+        _processData.isSameProvince.forEach(renderGraduator);
+    }
     //console.log(graduatorData);
     //console.log(teacherData);
-    console.log(otherData);
+    //console.log(otherData);
 
     function g(el) {
         return document.getElementsByClassName(el);
@@ -1420,7 +1425,6 @@ exports.default = function () {
                 instace = {};
                 var e = e || window.event;
                 var el = e.toElement || e.target;
-                console.log(e);
                 instace.moveElement = el;
                 //  获取鼠标的坐标
                 var mouseX = e.pageX;
@@ -1477,11 +1481,10 @@ function renderGraduator(element) {
     titleContainer.append(titleToInsert);
     var studentNum = element.graduator.length;
     var studentInSameProvinceData = [];
-    console.log("dddd" + studentNum);
     for (var i = 0; i < studentNum; i++) {
         studentInSameProvinceData.push(_importXLSX.finalData[element.graduator[i]]);
     }
-    console.log(studentInSameProvinceData);
+    //console.log(studentInSameProvinceData);
     renderProvinceData(studentInSameProvinceData, divToInsert);
     // element.graduator.forEach(renderListData);
     targetNode.append(divToInsert);
@@ -1503,24 +1506,6 @@ function renderProvinceData(studentData, divToInsert) {
         divToInsert.appendChild(stringToInsert);
     });
     return divToInsert;
-    /*    var teacherDiv = document.createElement("div");
-        teacherDiv.setAttribute('city','teacher');
-    
-        teacherDiv.className += ' display-style ';
-        teacherDiv.className += ' teacher-data-style ';
-        teacherData.forEach(function(element) {
-            var stringToInsert = document.createElement("p");
-            stringToInsert.className += ' no-margin ';
-            if (element.name.length === 2) {
-                var textToInsert = document.createTextNode(element.name+'  '+element.school);
-            } else {
-                var textToInsert = document.createTextNode(element.name+'   '+element.school);
-            }
-            stringToInsert.appendChild(textToInsert);
-            teacherDiv.appendChild(stringToInsert);
-        });
-        return teacherDiv;
-        */
 }
 
 function renderListData(element) {
@@ -1583,7 +1568,7 @@ function renderOther(finalData) {
 
 //entry.js
 
-console.log("hello,world!");
+console.log("%cPowered by UniqueStudio @HUST", "background: #fe921f; color: #ffffff; display: inline-block; font-size: 12px; font-weight: bold; line-height: 12px; letter-spacing: 1px; margin: 0 0 30px; padding: 10px 15px 8px; text-transform: uppercase;");
 __webpack_require__(0);
 
 __webpack_require__(9);
@@ -1666,6 +1651,7 @@ $("#addString").click(function () {
         "广西": [768, 683],
         "云南": [617, 661],
         "海南": [794, 783],
+        "河南": [834, 487],
         "台湾": [997, 676],
         "湖南": [815, 608],
         "安徽": [901, 512],
@@ -1730,28 +1716,6 @@ $("#addString").click(function () {
 
 $(function () {
     $("#downloadPic").click(function () {
-        /*var svgImage = $('#svg-data')[0].contentDocument.childNodes[0];
-        var str = (new XMLSerializer()).serializeToString(svgImage);
-        str = str.replace(/xmlns=\"http:\/\/www\.w3\.org\/1999\/svg\"/, '');
-        var $canvas = $('<canvas/>');
-        $canvas.width($('#svg-data').width());
-        $canvas.height($('#svg-data').height());
-        $canvas[0].getcontext("2d").fillStyle = '#fff';
-        $canvas[0].getcontext("2d").fillRect(0,0);
-        $canvas.appendTo("#map-part");
-        canvg($canvas.get(0), str); // convert SVG to canvas
-        $('#svg-data').hide();
-        $canvas.onload = function () {
-            html2canvas($("#map-part"), {
-                onrendered: function (canvas) {
-                    var a = document.createElement('a');
-                    a.href = canvas.toDataURL();
-                    a.download = 'test2.png';
-                    a.click();
-                    $canvas.remove();
-                }
-            })
-        };*/
         var svgObj = $("#svg-data");
         var svgString = new XMLSerializer().serializeToString(svgObj[0].contentDocument.childNodes[0]);
         var DOMURL = self.URL || self.webkitURL || self;
@@ -1791,7 +1755,7 @@ $(function () {
         img.src = url;
 
         $(canvas2).insertAfter(svgObj);
-        console.log(svgObj);
+        //console.log(svgObj);
         $(svgObj).hide();
         //document.body.appendChild(canvas2);*/
     });

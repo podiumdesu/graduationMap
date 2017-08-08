@@ -24,16 +24,16 @@ export function processData() {
     allData.forEach(pushJobStatistic);
     //只获取毕业生（非出国）的省份
     var graduatorData = allData.filter(getAllGraduatorData);
-    console.log("下面是毕业生的信息");
-    console.log(graduatorData);
+    //console.log("下面是毕业生的信息");
+    //console.log(graduatorData);
     graduatorData.forEach(getAllGraduatorProvince);
-    console.log("所有的省份为："+allProvince);
+    //console.log("所有的省份为："+allProvince);
     allData.forEach(pushSameProvince);
-    console.log("同一个省份的学生的编号");
-    console.log(isSameProvince);
-    console.log("老师的编号"+jobStatistic.teacher);
-    console.log("毕业生的编号"+jobStatistic.graduator);
-    console.log("其他学生的编号"+jobStatistic.other);
+    //console.log("同一个省份的学生的编号");
+    //console.log(isSameProvince);
+    //console.log("老师的编号"+jobStatistic.teacher);
+    //console.log("毕业生的编号"+jobStatistic.graduator);
+    //console.log("其他学生的编号"+jobStatistic.other);
     render();
 
 };

@@ -17,6 +17,7 @@ h4 {
 }
 #map-title {
     margin: 0px;
+    user-select: none;
 }
 
 #map-part {

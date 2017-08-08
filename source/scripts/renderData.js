@@ -7,10 +7,9 @@ import {finalData} from './importXLSX.js';
 
 export default function() {
     var targetNode = $("#map-part");
-    console.log("This is render()");
+    //console.log("This is render()");
 
 
-    var otherData = finalData.filter(getAllOtherData);
     var titleDiv = document.createElement("div");
     var titleH2 = document.createElement("h2");
     titleDiv.appendChild(titleH2);
@@ -18,13 +17,18 @@ export default function() {
     titleH2.setAttribute("id","map-title");
     targetNode.append(titleDiv);
     $("#map-title").html(finalName);
-    targetNode.append(renderTeacher(finalData));
-    targetNode.append(renderOther(finalData));
-
-    isSameProvince.forEach(renderGraduator);
+    if (jobStatistic.teacher.length > 0) {
+        targetNode.append(renderTeacher(finalData));
+    }
+    if (jobStatistic.other.length > 0) {
+        targetNode.append(renderOther(finalData));
+    }
+    if (jobStatistic.graduator.length > 0) {
+        isSameProvince.forEach(renderGraduator);
+    }
     //console.log(graduatorData);
     //console.log(teacherData);
-    console.log(otherData);
+    //console.log(otherData);
 
     function g(el){ return document.getElementsByClassName(el);}
     var icons = g('student-data-style');
@@ -35,7 +39,6 @@ export default function() {
                 instace = {};
                 var e = e || window.event;
                 var el = e.toElement || e.target;
-                console.log(e);
                 instace.moveElement = el;
                 //  获取鼠标的坐标
                 var mouseX = e.pageX;
@@ -90,11 +93,10 @@ function renderGraduator(element) {
     titleContainer.append(titleToInsert);
     var studentNum = element.graduator.length;
     var studentInSameProvinceData = [];
-    console.log("dddd"+studentNum);
     for (let i = 0; i < studentNum; i++) {
         studentInSameProvinceData.push(finalData[element.graduator[i]]);
     }
-    console.log(studentInSameProvinceData);
+    //console.log(studentInSameProvinceData);
     renderProvinceData(studentInSameProvinceData,divToInsert);
    // element.graduator.forEach(renderListData);
     targetNode.append(divToInsert);
@@ -116,24 +118,7 @@ function renderProvinceData(studentData,divToInsert) {   //将渲染出来的数
         divToInsert.appendChild(stringToInsert);
     });
     return divToInsert;
-/*    var teacherDiv = document.createElement("div");
-    teacherDiv.setAttribute('city','teacher');
 
-    teacherDiv.className += ' display-style ';
-    teacherDiv.className += ' teacher-data-style ';
-    teacherData.forEach(function(element) {
-        var stringToInsert = document.createElement("p");
-        stringToInsert.className += ' no-margin ';
-        if (element.name.length === 2) {
-            var textToInsert = document.createTextNode(element.name+'  '+element.school);
-        } else {
-            var textToInsert = document.createTextNode(element.name+'   '+element.school);
-        }
-        stringToInsert.appendChild(textToInsert);
-        teacherDiv.appendChild(stringToInsert);
-    });
-    return teacherDiv;
-    */
 }
 
 

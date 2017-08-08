@@ -1,6 +1,6 @@
 //entry.js
 
-console.log("hello,world!");
+console.log("%cPowered by UniqueStudio @HUST","background: #fe921f; color: #ffffff; display: inline-block; font-size: 12px; font-weight: bold; line-height: 12px; letter-spacing: 1px; margin: 0 0 30px; padding: 10px 15px 8px; text-transform: uppercase;")
 require('./importXLSX.js');
 
 require('./test.js');

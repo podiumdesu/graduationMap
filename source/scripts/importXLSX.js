@@ -18,17 +18,17 @@ function process_data(wb){
     var firstSheetName = wb.SheetNames[0];
     finalWorkSheet = wb.Sheets[firstSheetName];
     finalName = finalWorkSheet['A1'].v;
-    console.log("The name of the sheet is "+finalName);
-    console.log("The data of the sheet is:");
+   // console.log("The name of the sheet is "+finalName);
+   // console.log("The data of the sheet is:");
     finalData = XLSX.utils.sheet_to_json(finalWorkSheet , {header:["name","job","school","location"],range:2});
-    console.log(finalData);
+   // console.log(finalData);
     processData();
 }
 function handleFile(e) {
     var f = e.target.files[0];
     var reader = new FileReader();    //读取文件
     var name = f.name;
-    console.log(name+' is being read!');
+   // console.log(name+' is being read!');
     reader.onload = function(e){
         //alert("onload ok!");
         var data = e.target.result;
